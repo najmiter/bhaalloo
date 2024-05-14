@@ -88,3 +88,11 @@ button {
 #start-btn-container * {
     pointer-events: all;
 }
+
+.dynamic {
+    position: absolute;
+    top: -10%;
+    font-size: 4rem;
+
+    animation: fall 20s linear forwards;
+}

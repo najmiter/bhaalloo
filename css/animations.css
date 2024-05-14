@@ -3,3 +3,9 @@
         right: 110%;
     }
 }
+
+@keyframes fall {
+    to {
+        top: 110%;
+    }
+}
