@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 11.25px;
+}
+
 body {
     height: 100vh;
     max-height: 100vh;
@@ -31,6 +35,7 @@ img {
 .cloud:nth-child(2) {
     top: 30%;
     right: -30%;
+    width: 250px;
     animation-duration: 45s;
 }
 
@@ -38,7 +43,48 @@ img {
     width: 30px;
     height: 30px;
     position: fixed;
-    top: 0px;
+    top: 100px;
     left: 0px;
     transition: left 100ms, top 100ms;
+}
+
+button {
+    font-size: 1.5rem;
+    border: none;
+    background: lightskyblue;
+    color: #333;
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+
+    transition: background-color 100ms;
+}
+
+#start-btn {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
+
+#start-btn:hover {
+    background-color: rgb(89, 160, 205);
+}
+
+#start-btn-container {
+    pointer-events: none;
+    position: absolute;
+    background-color: rgba(33, 33, 33, 0.34);
+    width: 70vw;
+    height: 70vh;
+    backdrop-filter: blur(1rem);
+
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
+
+#start-btn-container * {
+    pointer-events: all;
 }
