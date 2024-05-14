@@ -1,0 +1,44 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    max-height: 100vh;
+    max-height: 100svh;
+    background-color: lightseagreen;
+    background: url(imgs/assets/sky.svg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+img {
+    max-width: 100%;
+}
+
+.cloud {
+    animation: cloudClouding 40s linear infinite;
+    position: fixed;
+    right: -10%;
+    top: 15%;
+    width: 150px;
+}
+
+.cloud:nth-child(2) {
+    top: 30%;
+    right: -30%;
+    animation-duration: 45s;
+}
+
+.player-container {
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    transition: left 100ms, top 100ms;
+}
