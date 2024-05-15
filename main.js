@@ -60,17 +60,30 @@ function movePlayer(key) {
                 : `${screenHeight - PLAYER_IMG_SIDE_LENGTH}px`;
     }
 
-    const newLeft = playerContainer.getBoundingClientRect().left;
-    elemets.forEach((el) => {
-        const fruitLeft = el.getBoundingClientRect().left;
-        const fruitWidth = el.getBoundingClientRect().width;
-        if (
-            newLeft + PLAYER_IMG_SIDE_LENGTH >= fruitLeft &&
-            newLeft + PLAYER_IMG_SIDE_LENGTH <= fruitLeft + fruitWidth
-        ) {
-            fruits.removeChild(el);
-        }
-    });
+    if (
+        [
+            "ArrowRight",
+            "ArrowLeft",
+            "ArrowUp",
+            "ArrowDown",
+            "KeyD",
+            "KeyA",
+            "KeyW",
+            "KeyS",
+        ].includes(key.code)
+    ) {
+        const newLeft = playerContainer.getBoundingClientRect().left;
+        elemets.forEach((el) => {
+            const fruitLeft = el.getBoundingClientRect().left;
+            const fruitWidth = el.getBoundingClientRect().width;
+            if (
+                newLeft + PLAYER_IMG_SIDE_LENGTH >= fruitLeft &&
+                newLeft + PLAYER_IMG_SIDE_LENGTH <= fruitLeft + fruitWidth
+            ) {
+                fruits.removeChild(el);
+            }
+        });
+    }
 }
 
 if (bgMusic) {
