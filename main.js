@@ -73,16 +73,28 @@ function movePlayer(key) {
 
     if (MOVE_KEYS.includes(key.code)) {
         const newLeft = playerContainer.getBoundingClientRect().left;
-        elemets.forEach((el) => {
+        const newTop = playerContainer.getBoundingClientRect().top;
+        const toRemove = [];
+
+        elemets.forEach((el, i) => {
+            const fruitTop = el.getBoundingClientRect().top;
             const fruitLeft = el.getBoundingClientRect().left;
             const fruitWidth = el.getBoundingClientRect().width;
+            const fruitHeight = el.getBoundingClientRect().height;
             if (
                 newLeft + PLAYER_IMG_SIDE_LENGTH >= fruitLeft &&
-                newLeft + PLAYER_IMG_SIDE_LENGTH <= fruitLeft + fruitWidth
+                newLeft + PLAYER_IMG_SIDE_LENGTH <= fruitLeft + fruitWidth &&
+                newTop + PLAYER_IMG_SIDE_LENGTH >= fruitTop &&
+                newTop + PLAYER_IMG_SIDE_LENGTH <= fruitTop + fruitHeight
             ) {
+                document.getElementById("pop-sound").currentTime = 0;
+                document.getElementById("pop-sound").play();
+                toRemove.push(i);
                 fruits.removeChild(el);
             }
         });
+
+        elemets = elemets.filter((_, i) => !toRemove.includes(i));
     }
 }
 
