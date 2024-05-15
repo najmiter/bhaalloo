@@ -11,9 +11,11 @@ html {
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
+    min-height: 100svh;
     max-height: 100vh;
     max-height: 100svh;
+    overflow: hidden;
     background-color: lightseagreen;
     background: url(imgs/assets/sky.svg) no-repeat;
     background-size: cover;
@@ -25,6 +27,8 @@ img {
 }
 
 .cloud {
+    z-index: -10;
+    opacity: 0.5;
     animation: cloudClouding 40s linear infinite;
     position: fixed;
     right: -10%;
