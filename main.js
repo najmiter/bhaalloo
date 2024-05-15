@@ -7,11 +7,8 @@ const startBtn = document.getElementById("start-btn");
 const fruits = document.querySelector(".fruits");
 let elemets = [];
 
-// bgMusic.volume = 0.1;
-
 const playerContainer = document.querySelector(".player-container");
 
-bgMusic?.addEventListener("pause", (thing) => thing.target.play());
 startBtn.addEventListener("click", () => {
     bgMusic?.play();
     document.querySelector("#start-btn-container").style.display = "none";
@@ -20,7 +17,6 @@ startBtn.addEventListener("click", () => {
 
 document.querySelector(".fruits").addEventListener("click", (e) => {
     elemets = elemets.filter((el) => el !== e.target);
-    console.log(e.target.getBoundingClientRect().top);
     fruits.removeChild(e.target);
 });
 
@@ -35,7 +31,7 @@ function movePlayer(key) {
         );
         el.setAttribute("class", "dynamic");
         el.setAttribute("data-id", elemets.length);
-        el.style.left = Math.trunc((Math.random() * 1000000) % 95) + "%";
+        el.style.left = 5 + Math.trunc((Math.random() * 1000000) % 90) + "%";
         elemets.push(el);
         fruits.appendChild(el);
     }
@@ -63,4 +59,9 @@ function movePlayer(key) {
                 ? `${previousTop + SPEED}px`
                 : `${screenHeight - PLAYER_IMG_SIDE_LENGTH}px`;
     }
+}
+
+if (bgMusic) {
+    bgMusic.volume = 0.1;
+    bgMusic?.addEventListener("pause", (thing) => thing.target.play());
 }

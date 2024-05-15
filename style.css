@@ -94,5 +94,5 @@ button {
     top: -10%;
     font-size: 4rem;
 
-    animation: fall 20s linear forwards;
+    animation: fall 5s linear infinite;
 }
