@@ -5,7 +5,9 @@ const screenHeight = window.innerHeight;
 const bgMusic = document.getElementById("bg-music");
 const startBtn = document.getElementById("start-btn");
 const fruits = document.querySelector(".fruits");
+const scoreText = document.querySelector(".score-text");
 let elemets = [];
+let scores = 0;
 
 const MOVE_KEYS = [
     "ArrowRight",
@@ -37,8 +39,8 @@ function movePlayer(key) {
 
     if (key.code == "KeyN") {
         const el = document.createElement("div");
-        el.textContent = ["🥰", "🍉", "🍎", "🥬"].at(
-            Math.trunc((Math.random() * 100000) % 4)
+        el.textContent = ["🥭", "🍉", "🍎", "🥬", "🍑"].at(
+            Math.trunc((Math.random() * 100000) % 5)
         );
         el.setAttribute("class", "dynamic");
         el.setAttribute("data-id", elemets.length);
@@ -91,6 +93,8 @@ function movePlayer(key) {
                 document.getElementById("pop-sound").play();
                 toRemove.push(i);
                 fruits.removeChild(el);
+                scores += 5;
+                scoreText.textContent = scores;
             }
         });
 

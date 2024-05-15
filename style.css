@@ -29,7 +29,7 @@ img {
 .cloud {
     z-index: -10;
     opacity: 0.5;
-    animation: cloudClouding 40s linear infinite;
+    /* animation: cloudClouding 40s linear infinite; */
     position: fixed;
     right: -10%;
     top: 15%;
@@ -99,4 +99,19 @@ button {
     font-size: 4rem;
 
     animation: fall 10s linear infinite;
+}
+
+.scores {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    display: flex;
+    gap: 1rem;
+    font-size: 1.6rem;
+    color: rgb(135, 169, 185);
+    font-family: monospace;
+}
+
+.score-text {
+    font-size: 1em;
 }
