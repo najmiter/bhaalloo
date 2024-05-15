@@ -7,6 +7,17 @@ const startBtn = document.getElementById("start-btn");
 const fruits = document.querySelector(".fruits");
 let elemets = [];
 
+const MOVE_KEYS = [
+    "ArrowRight",
+    "ArrowLeft",
+    "ArrowUp",
+    "ArrowDown",
+    "KeyD",
+    "KeyA",
+    "KeyW",
+    "KeyS",
+];
+
 const playerContainer = document.querySelector(".player-container");
 
 startBtn.addEventListener("click", () => {
@@ -60,18 +71,7 @@ function movePlayer(key) {
                 : `${screenHeight - PLAYER_IMG_SIDE_LENGTH}px`;
     }
 
-    if (
-        [
-            "ArrowRight",
-            "ArrowLeft",
-            "ArrowUp",
-            "ArrowDown",
-            "KeyD",
-            "KeyA",
-            "KeyW",
-            "KeyS",
-        ].includes(key.code)
-    ) {
+    if (MOVE_KEYS.includes(key.code)) {
         const newLeft = playerContainer.getBoundingClientRect().left;
         elemets.forEach((el) => {
             const fruitLeft = el.getBoundingClientRect().left;
